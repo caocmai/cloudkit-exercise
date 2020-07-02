@@ -16,6 +16,6 @@ struct Category {
 struct Post {
     let title: String
     let url: String
-    let date: Data
+    let date: Date
 }
 

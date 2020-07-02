@@ -16,10 +16,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let secondContainer = CKContainer.shared
         
-        let record = CKRecord(recordType: "Category")
-        record["title"] = "Tech"
-        record["order"] = 1
-        //        record["date"] = Date()
+        let record = CKRecord(recordType: "Post")
+        record["title"] = "macbook"
+        record["url"] = "www.mac.com"
+                record["date"] = Date()
+        
+        // Possible to save like this
         //        secondContainer.publicCloudDatabase.save(record) { (record, error) in
         //            print(record)
         
