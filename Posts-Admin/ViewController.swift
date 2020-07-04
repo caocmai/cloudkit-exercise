@@ -27,17 +27,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         deleteRecord(item: record["title"] as! String)
         self.categoryRecords.remove(at: indexPath.row)
         self.table.deleteRows(at: [indexPath], with: .fade)
-
         
-//        self.table.reloadData()
-
+        
+        //        self.table.reloadData()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedRecord = categoryRecords[indexPath.row]
+        let destinationVC = PostsVC()
+        destinationVC.selectedCategory = selectedRecord
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     
     var categoryRecords: [CKRecord] = []
-        
+    
     var table = UITableView()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +53,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.backgroundColor = .white
         createAddButton()
         //        fetchUsersFriends()
-//        fetchUserRecord()
-//        fetchCategories()
+        //        fetchUserRecord()
+        //        fetchCategories()
         fetchCategories()
         setUpTable()
-//        deleteRecord(item: "summer")
-
+        //        deleteRecord(item: "summer")
+        
         //        fetchUserName()
         
         
@@ -109,11 +117,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guard let categoryField = alertController.textFields?[0],
                   let orderField = alertController.textFields?[1] else { return }
             
-            
-            
             let secondContainer = CKContainer.shared
-            
-            let categoryRecord = CKRecord(recordType: .Category, recordID: .init(recordName: UUID().uuidString))
+            let categoryRecord = CKRecord(recordType: .Category)
             
             categoryRecord["title"] = categoryField.text!
             categoryRecord["order"] = Int(orderField.text!)
@@ -124,7 +129,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print("saved")
             }
             self.fetchCategories()
-
+            
         }
         
         alertController.addAction(action)
@@ -242,49 +247,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    func fetchCategories() {
-//        let predicate = NSPredicate(value: true)
-//        let query = CKQuery(recordType: "Category", predicate: predicate)
-//        let operation = CKQueryOperation(query: query)
-//
-//
-//        operation.recordFetchedBlock = { record in
-//            print(record)
-//            self.categoryRecords.append(record)
-//        }
-//
-//        operation.queryCompletionBlock = { cursor, error in
-//            // recipeRecords now contains all records fetched during the lifetime of the operation
-//            print(self.categoryRecords)
-//        }
-//
-//    }
+    //    func fetchCategories() {
+    //        let predicate = NSPredicate(value: true)
+    //        let query = CKQuery(recordType: "Category", predicate: predicate)
+    //        let operation = CKQueryOperation(query: query)
+    //
+    //
+    //        operation.recordFetchedBlock = { record in
+    //            print(record)
+    //            self.categoryRecords.append(record)
+    //        }
+    //
+    //        operation.queryCompletionBlock = { cursor, error in
+    //            // recipeRecords now contains all records fetched during the lifetime of the operation
+    //            print(self.categoryRecords)
+    //        }
+    //
+    //    }
     
     private func fetchCategories() {
         // Fetch Public Database
-        let publicDatabase = CKContainer.default().publicCloudDatabase
+        let publicDatabase = CKContainer.shared.publicCloudDatabase
         
         // Initialize Query
-        let query = CKQuery(recordType: "Category", predicate: NSPredicate(format: "TRUEPREDICATE"))
+        let query = CKQuery(recordType: "Category", predicate: NSPredicate(value: true))
         
         // Configure Query
-//        query.sortDescriptors = [NSSortDescriptor(key: "latinName", ascending: true)]
+        //        query.sortDescriptors = [NSSortDescriptor(key: "latinName", ascending: true)]
         
         // Perform Query
         publicDatabase.perform(query, inZoneWith: nil) { (records, error) -> Void in
-            DispatchQueue.main.async {
-                self.categoryRecords = records!
+            self.categoryRecords = records!
+
+//            DispatchQueue.main.async {
+//
+//            }
+            
+            OperationQueue.main.addOperation {
                 self.table.reloadData()
 
             }
-
+            
         }
         
-       
+        
     }
     
     func deleteRecord(item: String) {
-       let publicDatabase = CKContainer.default().publicCloudDatabase
+        let publicDatabase = CKContainer.default().publicCloudDatabase
         let predicate = NSPredicate(format: "title = %@", item)
         // Initialize Query
         let query = CKQuery(recordType: "Category", predicate: predicate)
@@ -299,15 +309,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-  
+    
     
     // Get specific stuff for specific user
-//    let predicate = NSPredicate(format: "creatorUserRecordID == %@", userRecordID)
-
+    //    let predicate = NSPredicate(format: "creatorUserRecordID == %@", userRecordID)
+    
     
 }
 
-//
+
 //extension CKRecord {
 //    subscript(key: Category.RecordKey) -> Any? {
 //        get {
@@ -318,3 +328,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        }
 //    }
 //}
+
+/// To save other data like images use  CKAsset, get the image, get the url of it so will not work will images in assets file needs to have a file of its own

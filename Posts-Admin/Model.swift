@@ -20,10 +20,10 @@ import CloudKit
 //    let date: Date
 //}
 
-enum CKRecordKey: String {
-    //Category
-    case title, order
-    //Post
-    case thumbnail, url, date, category
-}
-
+//enum CKRecordKey: String {
+//    //Category
+//    case title, order
+//    //Post
+//    case thumbnail, url, date, category
+//}
+//
