@@ -7,15 +7,23 @@
 //
 
 import Foundation
+import CloudKit
 
-struct Category {
-    let title: String
-    let order: Int
-}
+//struct Category {
+//    let title: String
+//    let order: Int
+//}
+//
+//struct Post {
+//    let title: String
+//    let url: String
+//    let date: Date
+//}
 
-struct Post {
-    let title: String
-    let url: String
-    let date: Date
+enum CKRecordKey: String {
+    //Category
+    case title, order
+    //Post
+    case thumbnail, url, date, category
 }
 

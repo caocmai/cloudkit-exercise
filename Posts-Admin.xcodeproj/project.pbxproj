@@ -17,6 +17,8 @@
 		2CFCA40424AD551F00918348 /* CKContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCA40324AD551F00918348 /* CKContainerExtension.swift */; };
 		2CFCA40624AD565500918348 /* RecordExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCA40524AD565500918348 /* RecordExtensions.swift */; };
 		2CFCA40824AD57E200918348 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCA40724AD57E200918348 /* Model.swift */; };
+		2CFCA40A24AD86FE00918348 /* TabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCA40924AD86FE00918348 /* TabBarContoller.swift */; };
+		2CFCA40C24AD880600918348 /* PostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFCA40B24AD880600918348 /* PostsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		2CFCA40324AD551F00918348 /* CKContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKContainerExtension.swift; sourceTree = "<group>"; };
 		2CFCA40524AD565500918348 /* RecordExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordExtensions.swift; sourceTree = "<group>"; };
 		2CFCA40724AD57E200918348 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2CFCA40924AD86FE00918348 /* TabBarContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContoller.swift; sourceTree = "<group>"; };
+		2CFCA40B24AD880600918348 /* PostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +74,12 @@
 				2CFCA3FF24AD4DCB00918348 /* Posts-Admin.entitlements */,
 				2CFCA3EB24AD4D0400918348 /* AppDelegate.swift */,
 				2CFCA3ED24AD4D0400918348 /* SceneDelegate.swift */,
-				2CFCA3EF24AD4D0400918348 /* ViewController.swift */,
 				2CFCA40324AD551F00918348 /* CKContainerExtension.swift */,
-				2CFCA40524AD565500918348 /* RecordExtensions.swift */,
 				2CFCA40724AD57E200918348 /* Model.swift */,
+				2CFCA40524AD565500918348 /* RecordExtensions.swift */,
+				2CFCA40924AD86FE00918348 /* TabBarContoller.swift */,
+				2CFCA3EF24AD4D0400918348 /* ViewController.swift */,
+				2CFCA40B24AD880600918348 /* PostsVC.swift */,
 				2CFCA3F124AD4D0400918348 /* Main.storyboard */,
 				2CFCA3F424AD4D0600918348 /* Assets.xcassets */,
 				2CFCA3F624AD4D0600918348 /* LaunchScreen.storyboard */,
@@ -161,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFCA40A24AD86FE00918348 /* TabBarContoller.swift in Sources */,
 				2CFCA40624AD565500918348 /* RecordExtensions.swift in Sources */,
+				2CFCA40C24AD880600918348 /* PostsVC.swift in Sources */,
 				2CFCA3F024AD4D0400918348 /* ViewController.swift in Sources */,
 				2CFCA40424AD551F00918348 /* CKContainerExtension.swift in Sources */,
 				2CFCA40824AD57E200918348 /* Model.swift in Sources */,

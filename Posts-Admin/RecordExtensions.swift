@@ -7,18 +7,25 @@
 //
 
 import Foundation
+import CloudKit
 
-extension Category {
-    enum RecordKey: String {
-        case title
-        case order
-    }
-}
+//extension Category {
+//    enum RecordKey: String {
+//        case title
+//        case order
+//    }
+//}
+//
+//extension Post {
+//    enum RecordKey: String {
+//        case title
+//        case url
+//        case date
+//    }
+//}
 
-extension Post {
-    enum RecordKey: String {
-        case title
-        case url
-        case date
-    }
+
+extension CKRecord.RecordType {
+    public static var Category: String = "Category"
+    public static var Post: String = "Post"
 }
